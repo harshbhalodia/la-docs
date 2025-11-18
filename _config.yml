@@ -1,0 +1,35 @@
+title: LocalAgents.ai
+description: Orchestrate AI agents locally with Python
+url: "https://yourusername.github.io"
+baseurl: "/your-repo-name"
+logo: /assets/img/logo.svg
+author: Your Startup Name
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Docs
+    url: /docs
+  - title: Quickstart
+    url: /quickstart
+  - title: API Reference
+    url: /api
+  - title: GitHub
+    url: https://github.com/yourusername/your-repo
+
+# Theme colors
+colors:
+  primary: "#6366f1"
+  secondary: "#8b5cf6"
+  accent: "#06b6d4"
+  dark: "#0f172a"
+  light: "#f8fafc"
