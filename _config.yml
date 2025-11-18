@@ -1,7 +1,7 @@
 title: LocalAgents.ai
 description: Orchestrate AI agents locally with Python
-url: "https://yourusername.github.io"
-baseurl: "/your-repo-name"
+url: "https://harshbhalodia.github.io"
+baseurl: "/la-docs"
 logo: /assets/img/logo.svg
 author: Your Startup Name
 
@@ -24,7 +24,7 @@ navigation:
   - title: API Reference
     url: /api
   - title: GitHub
-    url: https://github.com/yourusername/your-repo
+    url: https://github.com/harshbhalodia/la-docs
 
 # Theme colors
 colors:
