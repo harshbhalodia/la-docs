@@ -1,9 +1,9 @@
-title: LocalAgents.ai
-description: Orchestrate AI agents locally with Python
+title: LocalAgents
+description: A local-first agent harness, built on the Strands Agents SDK.
 url: "https://harshbhalodia.github.io"
 baseurl: "/la-docs"
 logo: /assets/img/logo.svg
-author: Your Startup Name
+author: Harshkumar Bhalodia
 
 # Build settings
 markdown: kramdown
@@ -17,14 +17,10 @@ plugins:
 navigation:
   - title: Home
     url: /
-  - title: Docs
-    url: /docs
   - title: Quickstart
     url: /quickstart
-  - title: API Reference
-    url: /api
   - title: GitHub
-    url: https://github.com/harshbhalodia/la-docs
+    url: https://github.com/harshbhalodia/localagents
 
 # Theme colors
 colors:

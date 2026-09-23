@@ -5,92 +5,55 @@ title: Quickstart Guide
 
 # Quickstart Guide
 
-Get up and running with LocalAgents in 5 minutes.
+Get up and running with LocalAgents in a few minutes.
 
 ## Installation
 
+LocalAgents isn't on PyPI yet — install it straight from GitHub:
+
 ```bash
-pip install localagents
+git clone https://github.com/harshbhalodia/localagents.git
+cd localagents
+python -m venv .venv
+.venv\Scripts\activate   # Windows; `source .venv/bin/activate` on macOS/Linux
+pip install -e ".[ollama]"
 ```
 
 ## Your First Agent
 
 ```python
-from localagents import Agent, Orchestrator
+from localagents import Harness
 
-# Initialize orchestrator
-orch = Orchestrator()
+# Reads config.yaml if present, otherwise falls back to local defaults
+# (Ollama on http://localhost:11434).
+harness = Harness.from_file("config.yaml")
 
-# Create an agent
-agent = Agent(
-    name="assistant",
-    model="llama3",  # or any local model
-    system_prompt="You are a helpful assistant"
-)
-
-# Run a simple task
-response = orch.run(agent.task("Explain quantum computing"))
-print(response)
+agent = harness.build_agent(session_id="my-session")
+result = agent("Explain quantum computing in two sentences.")
+print(result)
 ```
 
-## Multi-Agent Workflow
+Copy `config.example.yaml` to `config.yaml` to point at a different model provider — Ollama,
+any OpenAI-compatible local server (LM Studio, vLLM, ...), Amazon Bedrock, or a custom
+`{model, system_prompt, input}`-style endpoint.
+
+## Composing Agents
+
+The `agents` registry is where LocalAgents lets you share and orchestrate named presets across
+projects. The `wealth_advisor` example ships a real multi-specialist pipeline: three narrow
+specialist agents (cash flow, risk & diversification, goals) each look at one slice of
+already-computed data, then a lead-advisor agent synthesizes their notes into one client-facing
+recommendation:
 
 ```python
-# Define multiple agents
-researcher = Agent("researcher", model="llama3")
-analyst = Agent("analyst", model="mistral")
-writer = Agent("writer", model="phi3")
+from localagents import Harness
+from localagents.agents.wealth_advisor import run_wealth_advisor_review
 
-# Create a workflow
-workflow = orch.workflow([
-    researcher.task("Research AI trends in 2024"),
-    analyst.task("Analyze the research findings"),
-    writer.task("Write an executive summary")
-])
-
-# Execute
-result = workflow.execute()
+harness = Harness.from_file("config.yaml")
+review = run_wealth_advisor_review(harness, snapshot)  # snapshot: your own computed data
+print(review)
 ```
 
-[Next: Full Documentation →](/docs)
+See [`examples/`](https://github.com/harshbhalodia/localagents/tree/main/examples) in the repo
+for full runnable scripts.
 
-# ============================================
-# SETUP INSTRUCTIONS
-# ============================================
-
-To set up this theme on GitHub Pages:
-
-1. Create a new repository or use existing one
-2. Copy all files to your repository root
-3. Update _config.yml with your details:
-   - Change url and baseurl
-   - Update GitHub links
-   - Customize colors if desired
-4. Add your content in markdown files
-5. Push to GitHub
-6. Enable GitHub Pages in repository settings
-7. Select main branch as source
-
-Directory structure:
-your-repo/
-├── _config.yml
-├── _layouts/
-│   ├── default.html
-│   └── home.html
-├── assets/
-│   ├── css/
-│   │   └── style.css
-│   └── js/
-│       └── main.js
-├── index.md
-├── quickstart.md
-└── docs.md
-
-The theme features:
-- Modern gradient design
-- Responsive layout
-- Smooth animations
-- Code syntax highlighting
-- SEO optimized
-- Fast loading
-- Mobile-friendly

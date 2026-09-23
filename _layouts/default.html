@@ -22,19 +22,14 @@
         </div>
     </nav>
 
-    <div class="hero">
-        <div class="container page-content home-content fade-in">
-            {{ content }}
-        </div>
-    </div>
+    <main class="container page-content">
+        {{ content }}
+    </main>
 
     <footer>
         <div class="container">
-            <p>&copy; {{ site.time | date: "%Y" }} LocalAgents. Open Source &bull; Local-First.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;"><a href="https://github.com/harshbhalodia/localagents">GitHub</a></p>
+            <p>LocalAgents &mdash; Apache-2.0 licensed. <a href="https://github.com/harshbhalodia/localagents">GitHub</a></p>
         </div>
     </footer>
-
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
