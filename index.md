@@ -15,7 +15,7 @@ orchestrated review, all without a cloud account or API key.
     <span class="terminal-dot dot-red"></span>
     <span class="terminal-dot dot-yellow"></span>
     <span class="terminal-dot dot-green"></span>
-    <span class="terminal-title">bash</span>
+    <span class="terminal-title">zsh &mdash; 80&times;24</span>
   </div>
   <pre class="terminal-body"><code id="terminal-output">$ pip install -e ".[ollama]"
 Successfully installed localagents-0.1.0
@@ -55,34 +55,21 @@ The square root of 1764 is 42.</code></pre>
 
 <div class="features">
   <div class="feature">
-    <h3>💰 Loonie — Your Life Operating System</h3>
-    <p>
-      <a href="https://loonie.ai">Loonie</a> is a private, local-first life operating system —
-      connecting wealth, health, learning, travel, goals, and habits into one view. It's
-      LocalAgents' flagship strategic partner and proving ground: every agent-harness feature
-      shipped here first earned its place inside a real product, on a real user's real data.
-    </p>
-    <p>
-      Loonie's own decision and wealth-insight agents pioneered the pattern LocalAgents now
-      ships as a reusable harness: narrow specialist agents grounded only in pre-computed facts,
-      run against local models (Ollama, LM Studio) — see the
-      <a href="https://github.com/harshbhalodia/localagents/blob/main/localagents/agents/wealth_advisor.py">wealth-advisor example</a>
-      for the same multi-specialist review pipeline in LocalAgents form.
-    </p>
+    <h3>💰 Loonie</h3>
+    <p><strong>Your Life Operating System.</strong> A private, local-first app connecting wealth, health, learning, travel, goals, and habits into one view — LocalAgents' flagship partner and real-world proving ground.</p>
     <p><a href="https://loonie.ai">loonie.ai</a> &bull; <a href="https://github.com/harshbhalodia/loonie">GitHub</a></p>
   </div>
+
+  <div class="feature">
+    <h3>🧠 Battle-Tested Pattern</h3>
+    <p>Loonie's decision and wealth-insight agents pioneered the grounded, multi-specialist review pattern LocalAgents now ships as a reusable harness — see it live in the <a href="https://github.com/harshbhalodia/localagents/blob/main/localagents/agents/wealth_advisor.py">wealth-advisor example</a>.</p>
+  </div>
+
+  <div class="feature">
+    <h3>⚡ Digital + Physical AI</h3>
+    <p>One harness, two worlds: the same config and agent presets run a desktop app today and scale down to a consumer GPU, NPU, or edge device tomorrow — no cloud round-trip, no per-token bill.</p>
+  </div>
 </div>
-
-### Digital and physical AI, one framework
-
-Loonie is LocalAgents' first digital use case today — a desktop app orchestrating specialist
-agents over a user's own private data, with nothing sent to a cloud model provider. That same
-local-first design is what lets LocalAgents scale down as well as out: agents running against
-a consumer GPU or NPU, an edge device, or purpose-built hardware are the same harness, the same
-config format, and the same agent presets as a desktop app — just pointed at a different local
-endpoint. Cutting cloud inference costs and round-trip latency doesn't have to mean cutting
-corners on security: only computed facts, never raw data, ever reach a model, and the model
-itself never leaves your own infrastructure.
 
 ## Built on Strands, opinionated for local-first teams
 

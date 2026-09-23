@@ -341,7 +341,8 @@ footer a {
     font-size: 0.95rem;
     line-height: 1.7;
     color: #e6edf3;
-    min-height: 9rem;
+    height: 12rem;
+    overflow: hidden;
     white-space: pre-wrap;
     word-break: break-word;
 }
