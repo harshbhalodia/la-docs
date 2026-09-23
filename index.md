@@ -10,15 +10,19 @@ YAML-driven config for wiring up a model provider and local session persistence,
 sharing reusable agent presets, and a real example of composing multiple agents into one
 orchestrated review, all without a cloud account or API key.
 
-```python
-from localagents import Harness
+<div class="terminal-window" aria-label="Terminal demo: install and run a LocalAgents agent">
+  <div class="terminal-titlebar">
+    <span class="terminal-dot dot-red"></span>
+    <span class="terminal-dot dot-yellow"></span>
+    <span class="terminal-dot dot-green"></span>
+    <span class="terminal-title">bash</span>
+  </div>
+  <pre class="terminal-body"><code id="terminal-output">$ pip install -e ".[ollama]"
+Successfully installed localagents-0.1.0
 
-harness = Harness.from_file("config.yaml")
-agent = harness.build_agent(session_id="my-session")
-
-result = agent("What is the square root of 1764?")
-print(result)
-```
+$ python examples/basic_agent.py
+The square root of 1764 is 42.</code></pre>
+</div>
 
 [Get Started](/quickstart){: .btn .btn-primary}
 [View on GitHub](https://github.com/harshbhalodia/localagents){: .btn .btn-secondary}
