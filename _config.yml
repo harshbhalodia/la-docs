@@ -1,7 +1,7 @@
 title: LocalAgents
 description: A local-first agent harness, built on the Strands Agents SDK.
-url: "https://harshbhalodia.github.io"
-baseurl: "/la-docs"
+url: "https://localagents.ai"
+baseurl: ""
 logo: /assets/img/logo.svg
 author: Harshkumar Bhalodia
 
