@@ -57,3 +57,16 @@ print(review)
 See [`examples/`](https://github.com/harshbhalodia/localagents/tree/main/examples) in the repo
 for full runnable scripts.
 
+## Ship it as a blueprint
+
+Package your agent as a versioned blueprint that apps like [Loonie](https://loonie.ai) can
+install, license and run against data the user explicitly grants:
+
+```bash
+localagents blueprint init my_stress_test --id me.stress_test --publisher "Me"
+localagents blueprint validate my_stress_test
+localagents blueprint run my_stress_test --config config.yaml
+```
+
+Read the [blueprints guide](/blueprints) for tiers, data consent scopes and licensing.
+

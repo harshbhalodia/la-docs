@@ -11,8 +11,15 @@
     const SCRIPT = [
         { type: "command", text: 'pip install -e ".[ollama]"' },
         { type: "output", text: "Successfully installed localagents-0.1.0" },
-        { type: "command", text: "python examples/basic_agent.py" },
-        { type: "output", text: "The square root of 1764 is 42." },
+        { type: "command", text: "localagents blueprint list --dir examples/blueprints" },
+        {
+            type: "output",
+            text:
+                "loonie.core_stress_test           v0.1.0  free   Loonie (in-house)\n" +
+                "maple_trust.advisory_stress_test  v0.1.0  $4.99  Maple Trust (demo)",
+        },
+        { type: "command", text: "localagents blueprint run examples/blueprints/loonie_core_stress_test" },
+        { type: "output", text: "Overall resilience: strong. 7.4 months of runway covers a 3-month income loss..." },
     ];
 
     const TYPE_MS = 32;

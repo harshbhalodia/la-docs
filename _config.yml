@@ -1,5 +1,5 @@
 title: LocalAgents
-description: A local-first agent harness, built on the Strands Agents SDK.
+description: Local-first AI agents and blueprints, built on the Strands Agents SDK.
 url: "https://localagents.ai"
 baseurl: ""
 logo: /assets/img/logo.svg
@@ -19,6 +19,10 @@ navigation:
     url: /
   - title: Quickstart
     url: /quickstart
+  - title: Blueprints
+    url: /blueprints
+  - title: Loonie
+    url: https://loonie.ai
   - title: GitHub
     url: https://github.com/harshbhalodia/localagents
 
