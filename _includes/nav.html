@@ -1,0 +1,14 @@
+<nav class="navbar">
+  <div class="container">
+    <a href="{{ '/' | relative_url }}" class="logo">
+      <img src="{{ '/assets/img/logo.svg' | relative_url }}" width="28" height="28" alt="" aria-hidden="true">
+      <span>LocalAgents</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+      {% for item in site.navigation %}
+      <li><a href="{{ item.url }}"{% if item.url == page.url %} class="active"{% endif %}>{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

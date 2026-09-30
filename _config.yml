@@ -1,5 +1,5 @@
 title: LocalAgents
-description: Local-first AI agents and blueprints, built on the Strands Agents SDK.
+description: Build advisors and agents that run on the user's own machine, then ship them into real apps. Loonie is the first target.
 url: "https://localagents.ai"
 baseurl: ""
 logo: /assets/img/logo.svg
@@ -17,6 +17,8 @@ plugins:
 navigation:
   - title: Home
     url: /
+  - title: Build for Loonie
+    url: /advisors
   - title: Quickstart
     url: /quickstart
   - title: Blueprints

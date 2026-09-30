@@ -1,0 +1,176 @@
+---
+layout: home
+description: The open toolkit for building advisors and agents that run on the user's own machine, then shipping them into real apps. Loonie is the first target.
+---
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <span class="badge"><i></i> v0.2 &middot; Advisors for Loonie are live</span>
+      <h1>Build the intelligence.<br><span class="grad">Ship it into real apps.</span></h1>
+      <p class="lede">
+        LocalAgents is the open toolkit for turning your expertise into an advisor, then publishing it into an app people
+        already use. It runs on their machine, uses their own numbers with their consent, and never asks you to
+        write an integration.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ '/advisors' | relative_url }}">Build your first advisor</a>
+        <a class="btn" href="https://github.com/harshbhalodia/localagents">View on GitHub</a>
+      </div>
+      <p class="hero-meta">Free &amp; open source &middot; Python 3.10+ &middot; Built on the Strands Agents SDK</p>
+    </div>
+
+    <div class="demo-grid" id="demo">
+      <div class="window">
+        <div class="window-bar"><i></i><i></i><i></i><span class="window-title">your terminal</span></div>
+        <div class="window-body"><div class="term" id="term" aria-label="Terminal demo"></div></div>
+      </div>
+      <div class="window">
+        <div class="window-bar"><i></i><i></i><i></i><span class="window-title">Loonie &middot; Pilot (what your users see)</span></div>
+        <div class="window-body"><div class="lm" id="lm"><p class="lm-idle">Publish an advisor and watch it appear here&hellip;</p></div></div>
+      </div>
+    </div>
+    <noscript><p class="muted center" style="margin-top:16px">Turn on JavaScript to watch the demo: build, publish, and see it answer inside Loonie.</p></noscript>
+  </div>
+</header>
+
+<div class="container">
+  <div class="strip">
+    <span>Runs on the user&apos;s machine</span>
+    <span>Packs are data, never code</span>
+    <span>Consent asked in plain language</span>
+    <span>Ships to Loonie today</span>
+    <span>Apache-2.0</span>
+  </div>
+</div>
+
+<section class="section" id="how">
+  <div class="container">
+    <div class="center">
+      <p class="kicker">From idea to live</p>
+      <h2 class="section-title">Four steps. No integration work.</h2>
+      <p class="section-lede">You describe the advisor. LocalAgents checks it. The app does the hard parts: reading the user&apos;s data, asking permission, running it on their own model.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <h3>Start</h3>
+        <p>Create a starter pack with everything filled in.</p>
+<pre><code>localagents advisor init \
+  job_loss.yaml</code></pre>
+      </div>
+      <div class="step reveal">
+        <h3>Shape it</h3>
+        <p>Say when it should speak up, what it may read, and which scenarios it analyses.</p>
+<pre><code>triggers: [job loss]
+inputs: [net_worth, cashflow]</code></pre>
+      </div>
+      <div class="step reveal">
+        <h3>Check it</h3>
+        <p>Get hard errors and friendly tips before anyone sees it.</p>
+<pre><code>localagents advisor \
+  validate job_loss.yaml</code></pre>
+      </div>
+      <div class="step reveal">
+        <h3>Ship it</h3>
+        <p>Publish straight into Loonie. Users can use it on their next question.</p>
+<pre><code>localagents advisor \
+  publish job_loss.yaml</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="anatomy">
+  <div class="container">
+    <p class="kicker">Anatomy of an advisor</p>
+    <h2 class="section-title">One file. Everything an app needs.</h2>
+    <p class="section-lede">An advisor pack is plain YAML, so an app can load it safely and you can review it like any other file. Click a note to see where it lives.</p>
+    <div class="anatomy">
+      <div class="code-panel">
+        <div class="window-bar"><i></i><i></i><i></i><span class="window-title">job_loss.yaml</span></div>
+<pre><code><span class="hl" data-note="id"><span class="tok-k">id:</span> <span class="tok-s">acme_co.job_loss</span>
+<span class="tok-k">name:</span> <span class="tok-s">Job Loss Check</span>
+<span class="tok-k">version:</span> <span class="tok-s">"1.0.0"</span></span>
+<span class="hl" data-note="kind"><span class="tok-k">kind:</span> <span class="tok-s">stress_test</span>   <span class="tok-c"># stress_test | decision | analysis | plan</span></span>
+<span class="hl" data-note="summary"><span class="tok-k">summary:</span> <span class="tok-s">How long your savings last if income stops.</span></span>
+<span class="hl" data-note="triggers"><span class="tok-k">triggers:</span>
+  - <span class="tok-s">job loss</span>
+  - <span class="tok-s">lose my job</span></span>
+<span class="hl" data-note="examples"><span class="tok-k">examples:</span>
+  - <span class="tok-s">What if I lose my job for 3 months?</span></span>
+<span class="hl" data-note="inputs"><span class="tok-k">inputs:</span>
+  - <span class="tok-s">net_worth</span>
+  - <span class="tok-s">cashflow</span></span>
+<span class="hl" data-note="scenarios"><span class="tok-k">scenarios:</span>
+  - <span class="tok-k">id:</span> <span class="tok-s">three_months</span>
+    <span class="tok-k">description:</span> <span class="tok-s">Income stops for 3 months.</span></span></code></pre>
+      </div>
+      <div class="notes">
+        <button class="note on" data-note="id" type="button"><strong>Identity</strong><span>A stable id and version. Publish a higher version and it replaces the old one.</span></button>
+        <button class="note" data-note="kind" type="button"><strong>Kind</strong><span>Stress test, decision, analysis or plan. It tells the app how to present the answer.</span></button>
+        <button class="note" data-note="triggers" type="button"><strong>Triggers &amp; examples</strong><span>The phrases that bring your advisor in, and the questions suggested to users as they type.</span></button>
+        <button class="note" data-note="inputs" type="button"><strong>Inputs</strong><span>The user&apos;s numbers it may read. The app asks first, in plain words, and only ever shares what they allow.</span></button>
+        <button class="note" data-note="scenarios" type="button"><strong>Scenarios</strong><span>Each is analysed on its own, then combined into one clear advisory.</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <div class="container">
+    <div class="center">
+      <p class="kicker">Why builders pick it</p>
+      <h2 class="section-title">Less plumbing. More of your expertise.</h2>
+    </div>
+    <div class="features">
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Private by design</h3><p>Advisors run on the user&apos;s own machine and model. Their data is never sent to you, and you never have to host anything.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Consent built in</h3><p>The app lists exactly what your advisor will read and waits for a yes. You declare it once; nothing else to build.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h6"/></svg></div><h3>Data, not code</h3><p>Packs are YAML. There is nothing to install, sandbox or trust, so publishing is as easy as sharing a file.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></div><h3>Grounded answers</h3><p>The app computes every figure first. Your advisor only explains numbers that exist, so it can&apos;t invent them.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4M5 21h14"/></svg></div><h3>Validate before you ship</h3><p>Errors block a bad pack. Tips nudge you towards better triggers, examples and disclaimers.</p></div>
+      <div class="feature reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div><h3>Always current</h3><p>Publish a new version and the app uses it straight away. No release cycle, no app-store review.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="targets">
+  <div class="container">
+    <div class="center">
+      <p class="kicker">One workflow, many apps</p>
+      <h2 class="section-title">Loonie today. Your app next.</h2>
+      <p class="section-lede">The publish step is the same wherever it lands, so what you build for one app carries to the next.</p>
+    </div>
+    <div class="targets">
+      <div class="target live reveal"><span class="tag">Live now</span><h3>Loonie</h3><p>A private life-and-money app for Windows. Its Pilot chat brings in your advisor when someone asks the right question. <a href="{{ '/advisors' | relative_url }}">Publish to Loonie &rarr;</a></p></div>
+      <div class="target reveal"><span class="tag">Any folder</span><h3>Your own app</h3><p>Publish into any advisors folder with <code>--dir</code>, and load the same YAML with a few lines of code.</p></div>
+      <div class="target reveal"><span class="tag">On the roadmap</span><h3>More targets</h3><p>Hosted delivery, signed packs and more apps. Tell us which one you&apos;d use on GitHub.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="code">
+  <div class="container">
+    <div class="center">
+      <p class="kicker">Prefer code?</p>
+      <h2 class="section-title">The harness is right there.</h2>
+      <p class="section-lede">Build full Python agents on the Strands SDK with local-first defaults: one config file for your model, sessions and tools.</p>
+    </div>
+    <div class="code-panel" style="max-width:720px;margin:32px auto 0">
+      <div class="window-bar"><i></i><i></i><i></i><span class="window-title">agent.py</span></div>
+<pre><code><span class="tok-k">from</span> localagents <span class="tok-k">import</span> Harness
+
+harness = Harness.from_file(<span class="tok-s">"config.yaml"</span>)   <span class="tok-c"># Ollama, LM Studio, Bedrock&hellip;</span>
+agent = harness.build_agent(session_id=<span class="tok-s">"me"</span>)
+<span class="tok-k">print</span>(agent(<span class="tok-s">"Explain my options in two sentences."</span>))</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2 class="section-title">Ship your first advisor today.</h2>
+    <p class="section-lede" style="margin:0 auto 24px">Install, scaffold, publish. It takes about five minutes.</p>
+    <div class="install"><code id="install-cmd">pip install git+https://github.com/harshbhalodia/localagents.git</code><button class="copy-btn" id="copy-btn" type="button">Copy</button></div>
+    <p style="margin-top:22px"><a class="btn btn-primary" href="{{ '/advisors' | relative_url }}">Follow the guide</a></p>
+  </div>
+</section>

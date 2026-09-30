@@ -57,10 +57,20 @@ print(review)
 See [`examples/`](https://github.com/harshbhalodia/localagents/tree/main/examples) in the repo
 for full runnable scripts.
 
-## Ship it as a blueprint
+## Ship it to Loonie
 
-Package your agent as a versioned blueprint that apps like [Loonie](https://loonie.ai) can
-install, license and run against data the user explicitly grants:
+The fastest route from idea to users is an **advisor pack**: one YAML file that Loonie's Pilot brings in
+when someone asks the right question. Follow the [step-by-step guide](/advisors), or:
+
+```bash
+localagents advisor init job_loss.yaml --publisher "Me"
+localagents advisor validate job_loss.yaml
+localagents advisor publish job_loss.yaml --to loonie
+```
+
+### Code-based blueprints
+
+Need custom Python logic? Package your agent as a versioned blueprint instead:
 
 ```bash
 localagents blueprint init my_stress_test --id me.stress_test --publisher "Me"

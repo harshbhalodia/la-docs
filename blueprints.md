@@ -5,6 +5,8 @@ title: Blueprints & Marketplace - LocalAgents
 
 # Blueprints &amp; Marketplace
 
+<div class="callout"><p>Looking for the fastest way to ship to Loonie? Publish an <a href="/advisors">advisor pack</a>. Use blueprints when you need custom code.</p></div>
+
 A **blueprint** is a versioned, distributable package of agent logic — scenarios, system prompts
 and orchestration — plus a manifest that says who published it, whether it's free or paid, and
 exactly which data it needs. Blueprints always run on the user's own device, against data the user
